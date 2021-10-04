@@ -564,9 +564,11 @@ def most_retweeted(tweets):
     >>> most_retweeted(trump_tweets[:5])
     '947592785519173637'
     '''
-    biggest_retweet = 0
-    biggest_str_id = 0
+    most_retweeted = 0
+    highest_retweet = 0
     for tweet in tweets:
-        if tweets[tweet] > biggest_retweet:
-            biggest_retweet = tweets[tweet]
-    return biggest_retweet
+        tweet_count = tweet["retweet_count"]
+        if tweet_count > highest_retweet:
+            highest_retweet = tweet_count
+            most_retweeted = tweet["id_str"]
+    return most_retweeted
